@@ -44,12 +44,12 @@ void WindowClear(window)
 	SDL_RenderPresent(renderer);
 }
 
-void DrawVector2(SDL_Window *window, Vector2 vector)
+void DrawVector2(SDL_Window *window, Vector2* vector)
 {
 	SDL_Renderer *renderer = SDL_GetRenderer(window);
 
-	SDL_SetRenderDrawColor(renderer, vector.color[0], vector.color[1], vector.color[2], 255);
-	SDL_RenderDrawLine(renderer, 250, 250, 250 + vector.x * 25, 250 + vector.y * -25);
+	SDL_SetRenderDrawColor(renderer, vector->color[0], vector->color[1], vector->color[2], 255);
+	SDL_RenderDrawLine(renderer, 250, 250, 250 + vector->x * 25, 250 + vector->y * -25);
 
 	SDL_RenderPresent(renderer);
 }
