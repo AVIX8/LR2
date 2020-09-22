@@ -18,7 +18,7 @@ SDL_Window *WindowInit()
 	return window;
 }
 
-void WindowClear(window)
+void WindowClear(SDL_Window* window)
 {
 	SDL_Renderer *renderer = SDL_GetRenderer(window);
 

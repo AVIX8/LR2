@@ -1,13 +1,12 @@
 #include "SDL2/SDL.h"
 #include "Window.h"
 #include "Vector2.h"
-#include "malloc.h"
 
 static int GREEN[3] = {0, 255, 0};
-static int RED[3] = {255,0,0};
-static int WHITE[3] = {255,255,255};
+static int RED[3] = {255, 0, 0};
+static int WHITE[3] = {255, 255, 255};
 
-static void Script(void *window)
+static int Script(void *window)
 {
     while (1)
     {
@@ -22,7 +21,7 @@ static void Script(void *window)
         DrawVector2(window, &v1);
 
         // динамическая переменная
-        Vector2* v2 = (Vector2*)malloc(sizeof(Vector2));
+        Vector2 *v2 = Vector2Init(0, 0, WHITE);
         Vector2Read(v2);
         printf("v2 = ");
         Display(v2);
@@ -41,6 +40,7 @@ static void Script(void *window)
         system("pause");
         system("cls");
     }
+    return 0;
 }
 
 int main(int argc, char *argv[])

@@ -2,6 +2,8 @@
 #define VECTOR_h_
 
 #include <stdio.h>
+#include <malloc.h>
+#include <math.h>
 #include "Window.h"
 
 typedef struct
@@ -13,17 +15,22 @@ typedef struct
 
 Vector2* Vector2Init(int x, int y, int *color)
 {
-    Vector2 newVector;
-    newVector.x = x;
-    newVector.y = y;
-    newVector.color = color;
-    return &newVector;
+    Vector2* newVector = (Vector2*)malloc(sizeof(Vector2));
+    newVector->x = x;
+    newVector->y = y;
+    newVector->color = color;
+    return newVector;
 }
 
 void Vector2Read(Vector2* vector)
 {
-    printf("Enter x and y: ");
-    scanf("%d%d", &vector->x, &vector->y);
+    while (
+        printf("Enter x and y: "),
+        fflush(stdin),
+        2 != scanf("%d%d", &vector->x, &vector->y) &&
+        printf("[!] You have entered incorrect data, please try again.\n")
+    );
+    fflush(stdin);
 }
 
 double Length(Vector2* vector)
