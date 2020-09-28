@@ -12,7 +12,7 @@ static int Script(void *window)
     {
         WindowClear(window);
 
-        // статическиая переменная
+        // статическая переменная
         Vector2 v1;
         Vector2Read(&v1);
         printf("v1 = ");
@@ -21,7 +21,8 @@ static int Script(void *window)
         DrawVector2(window, &v1);
 
         // динамическая переменная
-        Vector2 *v2 = Vector2Init(0, 0, WHITE);
+        Vector2 *v2 = (Vector2 *)malloc(sizeof(Vector2));
+        Vector2Init(v2, 0, 0, WHITE);
         Vector2Read(v2);
         printf("v2 = ");
         Display(v2);

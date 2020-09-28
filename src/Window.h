@@ -18,7 +18,7 @@ SDL_Window *WindowInit()
 	return window;
 }
 
-void WindowClear(SDL_Window* window)
+void WindowClear(SDL_Window *window)
 {
 	SDL_Renderer *renderer = SDL_GetRenderer(window);
 
@@ -31,7 +31,7 @@ void WindowClear(SDL_Window* window)
 	{
 		SDL_RenderDrawLine(renderer, x, 0, x, 500);
 	}
-	
+
 	for (int y = 0; y <= 500; y += 25)
 	{
 		SDL_RenderDrawLine(renderer, 0, y, 500, y);
@@ -44,7 +44,7 @@ void WindowClear(SDL_Window* window)
 	SDL_RenderPresent(renderer);
 }
 
-void DrawVector2(SDL_Window *window, Vector2* vector)
+void DrawVector2(SDL_Window *window, Vector2 *vector)
 {
 	SDL_Renderer *renderer = SDL_GetRenderer(window);
 
